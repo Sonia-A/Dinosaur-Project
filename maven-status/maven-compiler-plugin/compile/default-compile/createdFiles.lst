@@ -1,0 +1,10 @@
+com\dino\dino\model\CustomerDetails.class
+com\dino\dino\DinoApplication.class
+com\dino\dino\service\ControllerFunction.class
+com\dino\dino\model\Product.class
+com\dino\dino\model\ShoppingCart.class
+com\dino\dino\service\EmailProvider.class
+com\dino\dino\service\ProductService.class
+com\dino\dino\controller\ApplicationController.class
+com\dino\dino\repository\ProductRepo.class
+com\dino\dino\service\Hello.class

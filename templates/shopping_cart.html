@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Dinosaur</title>
+<link rel="icon" type="image/x-icon"
+	href="assets/img/dino-logo/logo.jpeg" />
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet">
+
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+	rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <link href="css/font-awesome.min.css" rel="stylesheet"> -->
+</head>
+
+
+
+
+<div class="container" id="menubar">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="index.html"> <!-- <img src="assets/img/logos/logo1.png" alt="" /> -->
+				<!-- <span style="font-family: Lucida handwriting; font-size:30px;float:right">Dinosaur</span> -->
+			</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				Menu<i class="fas fa-bars ml-1"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="/">Home</a></li>
+					<!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Services</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blog">Fashion Charity</a></li> -->
+					<!-- <li class="nav-item">
+                        <div class=" dropdown">
+                        <a class="nav-link"><button class="dropbtn">RENTALS</button></a>
+                        <div class="dropdown-content">
+                          <a href="#">Bridal Gowns</a>
+                          <a href="#">Grooms's wear</a>
+                          <a href="#">Accessories</a>
+
+                        </div>
+                      </div>
+                    </li> -->
+
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="faq">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+
+<div class="col-lg-12 shortcuts">
+	<a href="/"><i class="fa fa-home"></i> Home</a> <span>Shopping-List</span>
+</div>
+<body>
+	<!-- Shopping Section  -->
+	<div class="row">
+		<div class="col-lg-3">
+			<!-- <div id="shop">
+            <h2 class="shop_title">Categories</h2>
+            <ul id="list">
+                <li><a href="#women">Women</a></li>
+                <li><a href="#men">Men</a></li>
+                <li><a href="#Kids">Kids</a></li>
+            </ul>   
+        </div>  -->
+			<div class="col-lg-12 product-filter" id="shop">
+				<h3 class="shop_title">Filter</h3>
+				<div id="shopping_filter">
+
+					<form action="#" th:action="@{/shop}" method="get">
+						<button class="btn-filter active">All</button>
+					</form>
+
+					<form action="#" th:action="@{/skirts}">
+						<button class="btn-filter">Skirts</button>
+
+					</form>
+
+					<form action="#" th:action="@{/tops}">
+						<button class="btn-filter">Tops</button>
+
+					</form>
+
+					<form action="#" th:action="@{/combo}">
+						<button class="btn-filter">Combo</button>
+
+					</form>
+
+					<form action="#" th:action="@{/dress}">
+						<button class="btn-filter">Dresses</button>
+
+					</form>
+
+					<form action="#" th:action="@{/suits}">
+
+						<button class="btn-filter">Suits</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div class="row col-lg-9 product-listing">
+			<div class="product suits" th:each="product:${product}">
+				<div class="col-md-4 col-md-12 list-items">
+					<div>
+
+						<div class="product-img" id="product-img">
+							<img class="iamge" style="width: auto;"
+								th:src="@{/images/}+${product.imageName.get(0).name}" />
+							<div class="bottom">
+								<div class="text">
+									<a th:href="@{product/}+${product.id}"> <i
+										class="fa fa-plus" aria-hidden="true"></i> <label
+										class="quick-view" >
+											View</label>
+									</a> <a class="shoping" th:href="@{shops/}+${product.id}"> <i
+										class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<!-- <div class="label-category" th:text="${product.filter}"></div> -->
+						<h6 th:text="${product.name}"></h6>
+						<div class="product-price">
+							<p th:text="${product.price}"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 	<div class="product suits">
+				<div class="col-md-4 col-md-12 list-items">
+					<div class="product-img" id="product-img">
+						<img class="image" src="assets/img/suit-4.png" alt="">
+						<div class="bottom">
+							<div class="text">
+								<a data-toggle="modal" href="#portfolioModal1"> <i
+									class="fa fa-plus" aria-hidden="true"></i> <label
+									class="quick-view">Quick View</label>
+								</a> <a class="shoping" href="shops"> <i
+									class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<div class="label-category">Suit</div>
+						<h6>LEvy Blue</h6>
+						<div class="product-price">$14.00</div>
+					</div>
+				</div>
+			</div>
+			<div class="product suits">
+				<div class="col-md-4 col-md-12 list-items">
+					<div class="product-img" id="product-img">
+						<img class="image" src="assets/img/suit-4.png" alt="">
+						<div class="bottom">
+							<div class="text">
+								<a data-toggle="modal" href="#portfolioModal1"> <i
+									class="fa fa-plus" aria-hidden="true"></i> <label
+									class="quick-view">Quick View</label>
+								</a> <a class="shoping" href="shops"> <i
+									class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<div class="label-category">Suit</div>
+						<h6>LEvy Blue</h6>
+						<div class="product-price">$14.00</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="product dresses">
+				<div class="col-md-4 col-md-12 list-items">
+					<div class="product-img" id="product-img">
+						<img class="image" src="assets/img/gown-4.png" alt="">
+						<div class="bottom">
+							<div class="text">
+								<a data-toggle="modal" href="#portfolioModal1"> <i
+									class="fa fa-plus" aria-hidden="true"></i> <label
+									class="quick-view">Quick View</label>
+								</a> <a class="shoping" href="shops"> <i
+									class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<div class="label-category">Gown</div>
+						<h6>Red Gown</h6>
+						<div class="product-price">$140.00</div>
+					</div>
+				</div>
+			</div>
+			<div class="product tops">
+				<div class="col-md-4 col-md-12 list-items">
+					<div class="product-img" id="product-img">
+						<img class="image" src="assets/img/top-4.png" alt="">
+						<div class="bottom">
+							<div class="text">
+								<a data-toggle="modal" href="#portfolioModal1"> <i
+									class="fa fa-plus" aria-hidden="true"></i> <label
+									class="quick-view">Quick View</label>
+								</a> <a class="shoping" href="shop.html"> <i
+									class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<div class="label-category">Top</div>
+						<h6>Yellow Top</h6>
+						<div class="product-price">$1.00</div>
+					</div>
+				</div>
+			</div>
+			<div class="product tops">
+				<div class="col-md-4 col-md-12 list-items">
+					<div class="product-img" id="product-img">
+						<img class="image" src="assets/img/top-4.png" alt="">
+						<div class="bottom">
+							<div class="text">
+								<a data-toggle="modal" href="#portfolioModal1"> <i
+									class="fa fa-plus" aria-hidden="true"></i> <label
+									class="quick-view">Quick View</label>
+								</a> <a class="shoping" href="shop.html"> <i
+									class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<div class="label-category">Top</div>
+						<h6>Yellow Top</h6>
+						<div class="product-price">$1.00</div>
+					</div>
+				</div>
+			</div>
+			<div class="product tops">
+				<div class="col-md-4 list-items col-md-12">
+					<div class="product-img" id="product-img">
+						<img class="image" src="assets/img/top-3.png" alt="">
+						<div class="bottom">
+							<div class="text">
+								<a data-toggle="modal" href="#portfolioModal1"> <i
+									class="fa fa-plus" aria-hidden="true"></i> <label
+									class="quick-view">Quick View</label>
+								</a> <a class="shoping" href="shop.html"> <i
+									class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<div class="label-category">Top</div>
+						<h6>Op Top</h6>
+						<div class="product-price">$14.00</div>
+					</div>
+				</div>
+			</div>
+			<div class="product suits">
+				<div class="col-md-4 col-md-12 list-items">
+					<div class="product-img" id="product-img">
+						<img class="image" src="assets/img/suit-4.png" alt="">
+						<div class="bottom">
+							<div class="text">
+								<a data-toggle="modal" href="#portfolioModal1"> <i
+									class="fa fa-plus" aria-hidden="true"></i> <label
+									class="quick-view">Quick View</label>
+								</a> <a class="shoping" href="shop.html"> <i
+									class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<div class="label-category">Suit</div>
+						<h6>LEvy Blue</h6>
+						<div class="product-price">$14.00</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="product combo">
+				<div class="col-md-4 col-md-12 list-items">
+					<div class="product-img" id="product-img">
+						<img class="image" src="assets/img/products/1.jpg" alt="">
+						<div class="bottom">
+							<div class="text">
+								<a data-toggle="modal" href="#portfolioModal1"> <i
+									class="fa fa-plus" aria-hidden="true"></i> <label
+									class="quick-view">Quick View</label>
+								</a> <a class="shoping" href="shop.html"> <i
+									class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="product-label">
+						<div class="label-category">Suit</div>
+						<h6>---</h6>
+
+						<div class="product-price">$14.00</div>
+					</div>
+				</div>
+			</div>
+			<div id="loading"></div> -->
+			<!-- <!-- <div class="row" id="more-content"> -->
+
+			<!-- 	<div class="product suits">
+					<div class="col-md-4 col-md-12 list-items">
+						<div class="product-img" id="product-img">
+							<img class="image" src="assets/img/suit-4.png" alt="">
+							<div class="bottom">
+								<div class="text">
+									<a data-toggle="modal" href="#portfolioModal1"> <i
+										class="fa fa-plus" aria-hidden="true"></i> <label
+										class="quick-view">Quick View</label>
+									</a> <a class="shoping" href="shop.html"> <i
+										class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="product-label">
+							<div class="label-category">Suit</div>
+							<h6>LEvy Blue</h6>
+							<div class="product-price">$14.00</div>
+						</div>
+					</div>
+				</div>
+				<div class="product combo">
+					<div class="col-md-4 col-md-12 list-items">
+						<div class="product-img" id="product-img">
+							<img class="image" src="assets/img/suit-4.png" alt="">
+							<div class="bottom">
+								<div class="text">
+									<a data-toggle="modal" href="#portfolioModal1"> <i
+										class="fa fa-plus" aria-hidden="true"></i> <label
+										class="quick-view">Quick View</label>
+									</a> <a class="shoping" href="shop.html"> <i
+										class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="product-label">
+							<div class="label-category">Suit</div>
+							<h6>LEvy Blue</h6>
+							<div class="product-price">$14.00</div>
+						</div>
+					</div>
+				</div>
+				<div class="product suits">
+					<div class="col-md-4 col-md-12 list-items">
+						<div class="product-img" id="product-img">
+							<img class="image" src="assets/img/suit-4.png" alt="">
+							<div class="bottom">
+								<div class="text">
+									<a data-toggle="modal" href="#portfolioModal1"> <i
+										class="fa fa-plus" aria-hidden="true"></i> <label
+										class="quick-view">Quick View</label>
+									</a> <a class="shoping" href="shop.html"> <i
+										class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="product-label">
+							<div class="label-category">Suit</div>
+							<h6>LEvy Blue</h6>
+							<div class="product-price">$14.00</div>
+						</div>
+					</div>
+				</div>
+				<div class="product suits">
+					<div class="col-md-4 col-md-12 list-items">
+						<div class="product-img" id="product-img">
+							<img class="image" src="assets/img/suit-4.png" alt="">
+							<div class="bottom">
+								<div class="text">
+									<a data-toggle="modal" href="#portfolioModal1"> <i
+										class="fa fa-plus" aria-hidden="true"></i> <label
+										class="quick-view">Quick View</label>
+									</a> <a class="shoping" href="shop.html"> <i
+										class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="product-label">
+							<div class="label-category">Suit</div>
+							<h6>LEvy Blue</h6>
+							<div class="product-price">$14.00</div>
+						</div>
+					</div>
+				</div>
+				<div class="product suits">
+					<div class="col-md-4 col-md-12 list-items">
+						<div class="product-img" id="product-img">
+							<img class="image" src="assets/img/suit-4.png" alt="">
+							<div class="bottom">
+								<div class="text">
+									<a data-toggle="modal" href="#portfolioModal1"> <i
+										class="fa fa-plus" aria-hidden="true"></i> <label
+										class="quick-view">Quick View</label>
+									</a> <a class="shoping" href="shop.html"> <i
+										class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="product-label">
+							<div class="label-category">Suit</div>
+							<h6>LEvy Blue</h6>
+							<div class="product-price">$14.00</div>
+						</div>
+					</div>
+				</div>
+				<div class="product suits"> -->
+			<!-- <div class="col-md-4 col-md-12 list-items"> -->
+			<!-- 			<div class="product-img" id="product-img">
+				<img class="image" src="assets/img/suit-4.png" alt="">
+				<div class="bottom">
+					<div class="text">
+						<a data-toggle="modal" href="#portfolioModal1"> <i
+							class="fa fa-plus" aria-hidden="true"></i> <label
+							class="quick-view">Quick View</label>
+						</a> <a class="shoping" href="shop.html"> <i
+							class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="product-label">
+				<div class="label-category">Suit</div>
+				<h6>LEvy Blue</h6>
+				<div class="product-price">$14.00</div>
+			</div>
+		</div> -->
+		</div>
+	</div>
+	</div>
+
+
+	</div>
+	<div class="container-fluid laod">
+		<span onclick="myFunction()" id="btn-load"> <img
+			src="icons/loading-icon-1.jpg" alt="">Loading More
+		</span>
+	</div>
+	<!-- Product Listing End -->
+
+
+</body>
+
+<script>
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+		acc[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.display === "block") {
+				panel.style.display = "none";
+			} else {
+				panel.style.display = "block";
+			}
+		});
+	}
+</script>
+
+<body>
+
+
+	<!-- Partner Logo Section Begin -->
+	<div class="partner-logo">
+		<div class="container">
+			<div class="logo-carousel owl-carousel">
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-1.png" alt="">
+					</div>
+				</div>
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-2.png" alt="">
+					</div>
+				</div>
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-3.png" alt="">
+					</div>
+				</div>
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-4.png" alt="">
+					</div>
+				</div>
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-5.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Partner Logo Section End -->
+</body>
+
+
+<!-- contact us -->
+<footer>
+	<section class="page-section" id="contact">
+		<div class="container" style="min-height: fit-content;">
+			<div class="row">
+				<div class="span3">
+					<div class="widget">
+						<h5 class="widgetheading" style="color: aliceblue;">Follow Us</h5>
+						<img class="social-media" src="icons/face.png"> <img
+							class="social-media" src="icons/insta-2.png"> <img
+							class="social-media" src="icons/twitter-3.png">
+						<!-- <img class="social-media" src="icons/link-2.png"> -->
+
+						<!-- <i class="fa fa-facebook-f" style="font-size:24px;color: aliceblue;"></i>
+                                <i class="fa fa-facebook" style="font-size:24px;color: aliceblue;"></i>
+                                <i class="fa fa-facebook" style="font-size:24px;color: aliceblue;"></i> -->
+
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="row align-items-center"
+				style="color: aliceblue; padding: 0%;">
+				<div class="col-lg-4 text-lg-left">Copyright © Dinosaur 2020</div>
+			</div>
+		</div>
+	</section>
+</footer>
+
+<!-- Modal -->
+<div class="portfolio-modal modal fade" id="portfolioModal1"
+	tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<img src="assets/img/icons/close-icon.svg" alt="Close modal" />
+			</div>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<div class="modal-body">
+							<!-- Project Details Go Here-->
+							<h2 class="text-uppercase">Levy Blue</h2>
+							<p class="item-intro text-muted">Description of the product</p>
+							<img class="img-fluid d-block mx-auto"
+								src="assets/img/suit-4.png" alt="" />
+							<div class="slider">
+								<div class="row">
+									<div class="col-md-4 side">
+										<img src="assets/img/suit-4.png"> <span>Side view
+											of product</span>
+									</div>
+									<div class=" col-md-4 back">
+										<img src="assets/img/suit-4.png"> <span>back view
+											of product</span>
+
+									</div>
+									<div class="col-md-4 edges">
+										<img src="assets/img/suit-4.png"> <span>bottom or
+											edges view of product</span>
+
+									</div>
+								</div>
+							</div>
+							<ul class="list-inline">
+								<li><b>Category:</b> Male</li>
+								<li><b>Color:</b> Blue</li>
+								<li><b>Size:</b> SM</li>
+								<li><b>Price:</b> $200</li>
+
+							</ul>
+							<button class="btn btn-primary" data-dismiss="modal"
+								type="button">
+								<i class="fas fa-times mr-1"></i> Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer-->
+<!-- Bootstrap core JS-->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Contact form JS-->
+<script src="assets/mail/jqBootstrapValidation.js"></script>
+<script src="assets/mail/contact_me.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- External js scripts -->
+
+<script src="js/filter.js"></script>
+
+</html>

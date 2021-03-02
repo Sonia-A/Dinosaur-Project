@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1" />
+<title>Spring App</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Product List</h1>
+		<a href="new">Create New Product</a>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Product ID</th>
+					<th>Product Name</th>
+					<th>Product Brand</th>
+					<th>Product Price</th>
+					<th>Product Category</th>
+					<!-- <th>Product Image</th> -->
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product:${product}">
+					<td th:text="${product.id}">Product ID</td>
+					<td th:text="${product.name}">Product Name</td>
+					<td th:text="${product.brand}">Product Brand</td>
+					<td th:text="${product.price}">Product Price</td>
+					<td th:text="${product.filter}">Product Category</td>
+					<!-- <td><img th:src="@{/images/}+${product.image}"/></td> -->
+					<td>
+					<a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+					
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+
+
+</html>

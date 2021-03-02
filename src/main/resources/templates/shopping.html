@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Dinosaur</title>
+<link rel="icon" type="image/x-icon"
+	href="assets/img/dino-logo/logo.jpeg" />
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.7.0/js/bootstrap.min.js"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+	rel="stylesheet" type="text/css" />
+<link href="css/styles.css" rel="stylesheet" />
+
+
+
+<!-- glyphicon -->
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+	rel="stylesheet">
+
+
+</head>
+
+<div class="container" id="menubar">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="/"> <!-- <img src="assets/img/logos/logo1.png" alt="" /> -->
+			</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				Menu<i class="fas fa-bars ml-1"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="faq">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<table class="table product-tab">
+				<thead>
+					<tr>
+						<th>Product</th>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Total</th>
+						<th><i class="x-icon">x</i></th>
+					</tr>
+				</thead>
+				<tbody>
+				    <tr th:each="product:${product}">
+						<td>
+							<div id="product-img">
+								<img class="image" th:src="@{/images/}+${product.image}" />
+
+							</div>
+						</td>
+						<td>
+							<div class="label">Dress</div>
+						</td>
+						<td>
+							<div class="quantity">
+								<div class="product-qty">
+									<input type="text" value="1">
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="cost">$14.00</div>
+						</td>
+						<td>$14.00</td>
+
+						<td><i class="x-icon">x</i></td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-sm-12">
+				<form action="yu">
+					<button class="continue-shop">CONTINUE SHOPPING</button>
+				</form><br></br>
+				<form action="">
+					<button type="submit" class="update-shop">UPDATE CART</button>
+				</form>
+				<div class="discount">
+					<span>DISCOUNT CODES</span>
+					<form action="#" class="discount-form">
+						<input class="discount-input" type="text"
+							placeholder="Enter your codes">
+						<button type="submit" class="coupon-btn">Apply</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12">
+				<div class="col-md-12 total-shop">
+					Total: <span class="col-sm-12 checkout-price">$28.00</span>
+
+				</div>
+				<form action="customer">
+					<button type="submit" class="col-sm-12 checkout-btn">Proceed
+						to Checkout</button>
+
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+</body>
+
+<script>
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+		acc[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.display === "block") {
+				panel.style.display = "none";
+			} else {
+				panel.style.display = "block";
+			}
+		});
+	}
+</script>
+
+<body>
+
+
+	<!-- Partner Logo Section Begin -->
+	<div class="partner-logo">
+		<div class="container">
+			<div class="logo-carousel owl-carousel">
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-1.png" alt="">
+					</div>
+				</div>
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-2.png" alt="">
+					</div>
+				</div>
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-3.png" alt="">
+					</div>
+				</div>
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-4.png" alt="">
+					</div>
+				</div>
+				<div class="logo-item">
+					<div class="tablecell-inner">
+						<img src="img/logo-carousel/logo-5.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Partner Logo Section End -->
+</body>
+
+
+<!-- contact us -->
+<footer>
+	<section class="page-section" id="contact">
+		<div class="container" style="min-height: fit-content;">
+			<div class="row">
+				<div class="span3">
+					<div class="widget">
+						<h5 class="widgetheading" style="color: aliceblue;">Follow Us</h5>
+						<img class="social-media" src="icons/face.png"> <img
+							class="social-media" src="icons/insta-2.png"> <img
+							class="social-media" src="icons/twitter-3.png">
+						<!-- <img class="social-media" src="icons/link-2.png"> -->
+
+						<!-- <i class="fa fa-facebook-f" style="font-size:24px;color: aliceblue;"></i>
+                              <i class="fa fa-facebook" style="font-size:24px;color: aliceblue;"></i>
+                              <i class="fa fa-facebook" style="font-size:24px;color: aliceblue;"></i> -->
+
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="row align-items-center"
+				style="color: aliceblue; padding: 0%;">
+				<div class="col-lg-4 text-lg-left">Copyright © Dinosaur 2020</div>
+			</div>
+		</div>
+	</section>
+</footer>
+<!-- Footer-->
+<!-- Bootstrap core JS-->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Contact form JS-->
+<script src="assets/mail/jqBootstrapValidation.js"></script>
+<script src="assets/mail/contact_me.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+</html>

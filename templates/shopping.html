@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dinosaur</title>
+    <link rel="icon" class="title-img" type="image/x-icon" href="assets/img/dino-logo/Dinosaur Crest B Square.svg" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    
+    
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+ 
+ 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <!-- Bootstrap --version-->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    </head>
+<style>
+.bs-example{
+  background:rgb(35, 32, 79);
+  }
+
+.img-prod{
+  width:220px;
+  height:265px;
+}
+.shortcuts{margin-top:20px;}
+#shop{margin-top:40px;}
+#list{  list-style: none;}
+.prod-dec{
+  text-align:right;
+  padding:2rem 4rem;
+}
+.add-cart{
+  font-size:1rem;
+  margin:2rem 0;
+  width:10rem;
+  height:2.5rem;
+  background:gold;
+}
+</style>
+
+
+
+<div class="container" id="menubar">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index">
+                <!-- <img src="assets/img/logos/logo1.png" alt="" /> -->
+                <!-- <span style="font-family: Lucida handwriting; font-size:30px;float:right">Dinosaur</span> -->
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Home</a></li>
+                 
+                   <li class="nav-item"><a class="nav-link js-scroll-trigger" href="fashion">Fashion Charity</a></li>
+                   
+    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about">About Us</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about">About Us</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<table class="table product-tab">
+				<thead>
+					<tr>
+						<th>Product</th>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Total</th>
+						<th><i class="x-icon">x</i></th>
+					</tr>
+				</thead>
+				<tbody>
+				    <tr th:each="product:${product}">
+						<td>
+							<div id="product-img">
+								<img class="img-prod image" th:src="@{/images/}+${product.imageName.get(0).name}"/>
+
+							</div>
+						</td>
+						<td>
+							<p class="label" th:text="${product.name}"></p>
+						</td>
+						<td>
+							<div class="quantity">
+								<div class="product-qty">
+									<input type="text" value="1">
+								</div>
+							</div>
+						</td>
+						<td>
+						<p class="label" th:text="${product.price}"></p>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-sm-12">
+				<form action="yu">
+					<button class="continue-shop">CONTINUE SHOPPING</button>
+				</form><br></br>
+				<form action="">
+					<button type="submit" class="update-shop">UPDATE CART</button>
+				</form>
+			</div>
+			<div class="col-md-4 col-sm-12">
+				<div class="col-md-12 total-shop">
+					Total: <span class="col-sm-12 checkout-price"><p th:text="${totalPrice}"></p></span>
+
+				</div>
+				<form action="customer">
+					<button type="submit" class="col-sm-12 checkout-btn">Proceed
+						to Checkout</button>
+
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script>
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+		acc[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.display === "block") {
+				panel.style.display = "none";
+			} else {
+				panel.style.display = "block";
+			}
+		});
+	}
+</script>
+<!-- contact us -->
+<footer>
+	<section class="page-section" id="contact">
+		<div class="container" style="min-height: fit-content;">
+			<div class="row">
+				<div class="span3">
+				
+				</div>
+			</div>
+
+
+
+			<div class="row align-items-center"
+				style="color: aliceblue; padding: 0%;">
+				<div class="col-lg-4 text-lg-left">Copyright © Dinosaur 2020</div>
+			</div>
+		</div>
+	</section>
+</footer>
+<!-- Footer-->
+<!-- Bootstrap core JS-->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Contact form JS-->
+<script src="assets/mail/jqBootstrapValidation.js"></script>
+<script src="assets/mail/contact_me.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+</html>

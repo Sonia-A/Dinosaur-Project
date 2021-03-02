@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Create New Product</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Create New Product</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${pro}" method="post"
+			enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td>Product Name</td>
+					<td colspan="2"><input type="text" th:field="*{name}" /></td>
+
+				</tr>
+
+				<tr>
+					<td>Product Brand</td>
+					<td colspan="2"><input type="text" th:field="*{brand}" /></td>
+				</tr>
+				<tr>
+					<td>Product Price</td>
+					<td colspan="2"><input type="text" th:field="*{price}" /></td>
+				</tr>
+
+				<tr>
+					<td>Select Category</td>
+					<td><select th:field="*{filter}">
+							<option
+								th:each="filter : ${T(com.dino.dino.model.Filter).values()}"
+								th:value="${filter}" th:text="${filter}"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Upload picture</td>
+					<td colspan="2"><input type="file" th:field="*{image}"  multiple="multiple" /></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+</body>
+
+
+</html>
